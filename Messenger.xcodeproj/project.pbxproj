@@ -24,6 +24,7 @@
 		29A24F64277C8B3F009D31E3 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F63277C8B3F009D31E3 /* NewConversationViewController.swift */; };
 		29A24F66277C8B7B009D31E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F65277C8B7B009D31E3 /* ProfileViewController.swift */; };
 		29A24F68277C8C79009D31E3 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29A24F67277C8C79009D31E3 /* GoogleService-Info-2.plist */; };
+		29A24F6A277C9789009D31E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29A24F69277C9789009D31E3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		29A24F63277C8B3F009D31E3 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		29A24F65277C8B7B009D31E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		29A24F67277C8C79009D31E3 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		29A24F69277C9789009D31E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				29A24F5B277C89EC009D31E3 /* Controllers */,
 				29A24F48277C8603009D31E3 /* Info.plist */,
 				29A24F67277C8C79009D31E3 /* GoogleService-Info-2.plist */,
+				29A24F69277C9789009D31E3 /* GoogleService-Info.plist */,
 				29A24F40277C8601009D31E3 /* Messenger.xcdatamodeld */,
 			);
 			path = Messenger;
@@ -213,6 +216,7 @@
 			files = (
 				29A24F47277C8603009D31E3 /* LaunchScreen.storyboard in Resources */,
 				29A24F44277C8603009D31E3 /* Assets.xcassets in Resources */,
+				29A24F6A277C9789009D31E3 /* GoogleService-Info.plist in Resources */,
 				29A24F68277C8C79009D31E3 /* GoogleService-Info-2.plist in Resources */,
 				29A24F3F277C8601009D31E3 /* Main.storyboard in Resources */,
 			);
