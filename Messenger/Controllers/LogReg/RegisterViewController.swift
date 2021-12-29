@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
@@ -182,6 +183,13 @@ class RegisterViewController: UIViewController {
                   return
               }
         //firebase log in
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult: AuthDataResult?, error: Error?) in
+            if let error = error {
+                print("error \(error.localizedDescription)")
+            }else{
+                print("Done :)")
+            }
+        }
     }
     func alerUserLoginError(){
         let alert = UIAlertController(title: "Woops", message: "Please enter all information to create a new account.", preferredStyle: .alert)
