@@ -18,7 +18,7 @@ class RegisterViewController: UIViewController {
     }()
     private let imageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -188,6 +188,8 @@ class RegisterViewController: UIViewController {
                 print("error \(error.localizedDescription)")
             }else{
                 print("Done :)")
+                self.navigationController?.dismiss(animated: true, completion: nil)
+
             }
         }
     }

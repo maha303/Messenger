@@ -125,6 +125,7 @@ class LoginViewController: UIViewController {
                 print("error \(error.localizedDescription)")
             }else{
                 print("Done :)")
+                self.navigationController?.dismiss(animated: true, completion: nil)
             }
         }
     }
