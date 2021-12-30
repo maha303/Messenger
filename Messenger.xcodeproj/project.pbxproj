@@ -27,6 +27,7 @@
 		29A24F6C277C9FEB009D31E3 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F6B277C9FEB009D31E3 /* PhotoViewerViewController.swift */; };
 		29A24F6E277CA01E009D31E3 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F6D277CA01E009D31E3 /* VideoPlayerViewController.swift */; };
 		29A24F71277CAD1C009D31E3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F70277CAD1C009D31E3 /* Extensions.swift */; };
+		29A24F9B277DD7C7009D31E3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F9A277DD7C7009D31E3 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		29A24F6B277C9FEB009D31E3 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		29A24F6D277CA01E009D31E3 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		29A24F70277CAD1C009D31E3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		29A24F9A277DD7C7009D31E3 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				29A24F37277C8601009D31E3 /* AppDelegate.swift */,
 				29A24F39277C8601009D31E3 /* SceneDelegate.swift */,
 				29A24F70277CAD1C009D31E3 /* Extensions.swift */,
+				29A24F9A277DD7C7009D31E3 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				29A24F66277C8B7B009D31E3 /* ProfileViewController.swift in Sources */,
 				29A24F3A277C8601009D31E3 /* SceneDelegate.swift in Sources */,
 				29A24F6E277CA01E009D31E3 /* VideoPlayerViewController.swift in Sources */,
+				29A24F9B277DD7C7009D31E3 /* DatabaseManager.swift in Sources */,
 				29A24F42277C8601009D31E3 /* Messenger.xcdatamodeld in Sources */,
 				29A24F71277CAD1C009D31E3 /* Extensions.swift in Sources */,
 				29A24F6C277C9FEB009D31E3 /* PhotoViewerViewController.swift in Sources */,
