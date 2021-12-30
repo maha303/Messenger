@@ -267,3 +267,4 @@ extension RegisterViewController : UIImagePickerControllerDelegate , UINavigatio
     }
 }
 
+//updated
