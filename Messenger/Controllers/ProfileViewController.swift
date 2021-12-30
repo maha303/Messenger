@@ -63,7 +63,6 @@ extension ProfileViewController : UITableViewDelegate , UITableViewDataSource {
                                             style: .cancel,
                                             handler: nil))
         present(actionSheet, animated: true)
-        
-        
-}
+    
+ }
 }
