@@ -12,11 +12,13 @@ import JGProgressHUD
 
 
 class ConversationViewController: UIViewController {
+    
     private let spinner = JGProgressHUD(style: .dark)
-    private let tableView:UITableView = {
+    
+    private let tableView : UITableView = {
         let table = UITableView()
         table.isHidden = true
-        table.register(UITableView.self, forCellReuseIdentifier: "cell")
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
     
@@ -43,6 +45,10 @@ class ConversationViewController: UIViewController {
         validateAuth()
         fetchConversations()
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
     
     private func validateAuth(){
         if Auth.auth().currentUser == nil {
@@ -57,10 +63,12 @@ class ConversationViewController: UIViewController {
         tableView.dataSource = self
     }
     private func fetchConversations(){
+        tableView.isHidden = false
         
     }
 
 }
+
 extension ConversationViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return 1
@@ -70,11 +78,17 @@ extension ConversationViewController : UITableViewDelegate , UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Hello World"
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = ChatViewController()
+        vc.title = "Jenny Smith"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
   
 }
