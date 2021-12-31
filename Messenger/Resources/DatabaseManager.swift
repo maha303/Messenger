@@ -38,7 +38,6 @@ public func insertUser(with user : ChatAppUser){
         ])
     }
 }
-    
 
 struct ChatAppUser{
     
@@ -52,5 +51,4 @@ struct ChatAppUser{
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
-    
 }
