@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		296074B3277EA05100933CCE /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 296074B2277EA05100933CCE /* MessageKit */; };
 		296074B6277F48CD00933CCE /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 296074B5277F48CD00933CCE /* JGProgressHUD */; };
+		296074B9277F5B1300933CCE /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 296074B8277F5B1300933CCE /* SDWebImage */; };
 		29A24F38277C8601009D31E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F37277C8601009D31E3 /* AppDelegate.swift */; };
 		29A24F3A277C8601009D31E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A24F39277C8601009D31E3 /* SceneDelegate.swift */; };
 		29A24F3F277C8601009D31E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29A24F3D277C8601009D31E3 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 				29A24F54277C86CC009D31E3 /* FirebaseDatabase in Frameworks */,
 				29A24F56277C86CC009D31E3 /* FirebaseStorage in Frameworks */,
 				29A24F50277C86CC009D31E3 /* FirebaseAnalytics in Frameworks */,
+				296074B9277F5B1300933CCE /* SDWebImage in Frameworks */,
 				29A24F52277C86CC009D31E3 /* FirebaseAuth in Frameworks */,
 				296074B6277F48CD00933CCE /* JGProgressHUD in Frameworks */,
 				296074B3277EA05100933CCE /* MessageKit in Frameworks */,
@@ -191,6 +193,7 @@
 				29A24F55277C86CC009D31E3 /* FirebaseStorage */,
 				296074B2277EA05100933CCE /* MessageKit */,
 				296074B5277F48CD00933CCE /* JGProgressHUD */,
+				296074B8277F5B1300933CCE /* SDWebImage */,
 			);
 			productName = Messenger;
 			productReference = 29A24F34277C8601009D31E3 /* Messenger.app */;
@@ -224,6 +227,7 @@
 				29A24F4E277C86CC009D31E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				296074B1277EA05000933CCE /* XCRemoteSwiftPackageReference "MessageKit" */,
 				296074B4277F48CD00933CCE /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				296074B7277F5B1300933CCE /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 29A24F35277C8601009D31E3 /* Products */;
 			projectDirPath = "";
@@ -503,6 +507,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		296074B7277F5B1300933CCE /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		29A24F4E277C86CC009D31E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -523,6 +535,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 296074B4277F48CD00933CCE /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
+		};
+		296074B8277F5B1300933CCE /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 296074B7277F5B1300933CCE /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 		29A24F4F277C86CC009D31E3 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
