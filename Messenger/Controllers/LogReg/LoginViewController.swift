@@ -148,6 +148,7 @@ class LoginViewController: UIViewController {
             if let error = error , authResult == nil{
                 print("error \(error.localizedDescription)")
             }else{
+                UserDefaults.standard.set(email, forKey: "email")
                 print("Done :)")
                 self.navigationController?.dismiss(animated: true, completion: nil)
             }
