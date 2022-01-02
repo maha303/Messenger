@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+//import FirebaseMLModelDownloader
 
 
 final class DatabaseManager{
@@ -120,6 +121,167 @@ extension DatabaseManager {
      */
 }
 
+extension DatabaseManager {
+    //create new conversation with target user emaml and frist message sent
+    public func createNewConversation(with otherUserEmail : String , fristMessage:Message , completion: @escaping (Bool)->Void){
+        
+        guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: currentEmail)
+        let ref = database.child("\(safeEmail)")
+        
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            guard var userNode = snapshot.value as? [String : Any] else {
+                completion(false)
+                print("user not found")
+                return
+            }
+            let messageDate = fristMessage.sentDate
+            let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+            
+            var message = ""
+            switch fristMessage.kind{
+         
+            case .text(let messageText):
+                message = messageText
+            case .attributedText(_):
+                break
+            case .photo(_):
+                break
+            case .video(_):
+                break
+            case .location(_):
+                break
+            case .emoji(_):
+                break
+            case .audio(_):
+                break
+            case .contact(_):
+                break
+            case .linkPreview(_):
+                break
+            case .custom(_):
+                break
+            }
+            let conversationId = "conversation_\(fristMessage.messageId)"
+            
+            let newConversationData : [String : Any ] =  [
+                "id": conversationId,
+                "other_user_email": otherUserEmail,
+                "latest_message":[
+                    "date": dateString ,
+                    "message":message,
+                    "is_read": false
+                ]
+            ]
+            if var conversations = userNode["conversations"] as? [[String : Any]] {
+                
+                conversations.append(newConversationData)
+                userNode["conversations"] = conversations
+                ref.setValue(userNode, withCompletionBlock: { [weak self]error , _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self?.finishCreatingConversation(conversationId: conversationId, firstMessage: fristMessage, completion: completion)
+                    
+                })
+                //
+            }else {
+                //
+                userNode["conversations"] = [
+                    newConversationData
+                ]
+                ref.setValue(userNode, withCompletionBlock: {[weak self] error , _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    self?.finishCreatingConversation(conversationId: conversationId, firstMessage: fristMessage, completion: completion)
+                    
+                })
+            }
+        })
+        
+    }
+    private func finishCreatingConversation(conversationId : String , firstMessage : Message , completion : @escaping (Bool)-> Void){
+        //{
+     //   "id": String,
+     //   "type":text , photo , video,
+    //    "content":String,
+   //     "date":Date(),
+    //    "sender_email": String,
+   //     "isRead":true/false
+        //}
+        let messageDate = firstMessage.sentDate
+        let dateString = ChatViewController.dateFormatter.string(from: messageDate)
+        var message = ""
+        switch firstMessage.kind{
+     
+        case .text(let messageText):
+            message = messageText
+        case .attributedText(_):
+            break
+        case .photo(_):
+            break
+        case .video(_):
+            break
+        case .location(_):
+            break
+        case .emoji(_):
+            break
+        case .audio(_):
+            break
+        case .contact(_):
+            break
+        case .linkPreview(_):
+            break
+        case .custom(_):
+            break
+        }
+        guard let myEmail = UserDefaults.standard.value(forKey: "email") as? String else {
+            completion(false)
+            return
+        }
+        let currentUserEmail = DatabaseManager.safeEmail(emailAddress: myEmail)
+        let collectionMessage : [String : Any] = [
+            "id": firstMessage.messageId,
+            "type" : firstMessage.kind.messageKindString,
+            "content" : message,
+            "data" :dateString,
+            "sender_email" : currentUserEmail,
+            "is_read": false
+        ]
+        let value : [String : Any ] = [
+            "message": [
+                collectionMessage
+            ]
+        ]
+        print("adding convo : \(conversationId)")
+        database.child("\(conversationId)").setValue(value, withCompletionBlock: {error , _ in
+            guard error == nil else {
+                completion(false)
+                return
+                
+            }
+            completion(true)
+        })
+        
+ }
+    
+    public func getAllConversations(for email:String, completion:@escaping(Result<String,Error>) -> Void){
+        
+    }
+    public func getAllMessageForConversation(with id: String , complation: @escaping(Result<String,Error>) -> Void){
+        
+    }
+    
+    public func sendMessage(to conversation:String,mmessage:Message,complation: @escaping(Bool)-> Void){
+        
+    }
+    
+}
 
 struct ChatAppUser{
     
