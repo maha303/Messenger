@@ -302,7 +302,42 @@ extension DatabaseManager {
         })
         
     }
-    public func getAllMessageForConversation(with id: String , complation: @escaping(Result<String,Error>) -> Void){
+    public func getAllMessageForConversation(with id: String , complation: @escaping(Result<[Message],Error>) -> Void) {
+        database.child("\(id)/message").observe(.value, with: { snapshot in
+            guard let value = snapshot.value as? [[String : Any]] else {
+                
+                complation(.failure(DatabaseError.failedToFetch))
+                
+                return
+            }
+            
+            let messages : [Message] = value.compactMap({ dictionary in
+                
+                guard let name = dictionary["name"] as? String,
+                   //   let isRead = dictionary["is_read"] as? Bool,
+                      let messageID = dictionary["id"] as? String,
+                      let content = dictionary["content"] as? String ,
+                      let senderEmail = dictionary["sender_email"] as? String,
+                    //  let type = dictionary["type"] as? String,
+                      let dateString = dictionary["data"] as? String ,
+                      let data = ChatViewController.dateFormatter.date(from: dateString)
+                    else {
+                          return nil
+                      }
+                let sender = Sender(photoURL: "",
+                                    senderId: senderEmail,
+                                    displayName: name)
+                
+                return Message(sender: sender,
+                               messageId: messageID,
+                               sentDate: data,
+                               kind: .text(content))
+      
+            })
+            
+            complation(.success(messages))
+            
+        })
         
     }
     
