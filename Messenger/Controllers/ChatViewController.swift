@@ -120,7 +120,7 @@ extension ChatViewController : InputBarAccessoryViewDelegate {
                                    kind: .text(text))
             
             // create convo
-            DatabaseManager.shared.createNewConversation(with: otherUserEmail, fristMessage: mmessage, completion: { success in
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User" , fristMessage: mmessage, completion: { success in
                 
                 if success {
                     print("message sent")
