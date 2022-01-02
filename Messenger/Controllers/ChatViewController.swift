@@ -115,7 +115,7 @@ class ChatViewController: MessagesViewController {
 
                     if shouldScrollToBottom{
 
-                        self?.messagesCollectionView.scrollToBottom()
+                        self?.messagesCollectionView.scrollToLastItem()
   
                     }
 
